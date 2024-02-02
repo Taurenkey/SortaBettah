@@ -3,10 +3,10 @@ using Dalamud.Interface.Utility;
 using ImGuiNET;
 using KamiLib.Utility;
 using Lumina.Excel.GeneratedSheets;
-using SortaKinda.Interfaces;
-using SortaKinda.Models.Enums;
+using SortaBettah.Interfaces;
+using SortaBettah.Models.Enums;
 
-namespace SortaKinda.Models.General;
+namespace SortaBettah.Models.General;
 
 public class ToggleFilter {
     public ToggleFilterState State;

@@ -1,7 +1,7 @@
 ﻿using System;
-using SortaKinda.System;
+using SortaBettah.System;
 
-namespace SortaKinda.Models.Configuration;
+namespace SortaBettah.Models.Configuration;
 
 public class SlotConfig {
     [NonSerialized] public bool Dirty;

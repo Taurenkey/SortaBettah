@@ -9,10 +9,10 @@ using ImGuiNET;
 using KamiLib;
 using KamiLib.Game;
 using Lumina.Excel.GeneratedSheets;
-using SortaKinda.Interfaces;
-using SortaKinda.Views.Windows;
+using SortaBettah.Interfaces;
+using SortaBettah.Views.Windows;
 
-namespace SortaKinda.Views.Tabs;
+namespace SortaBettah.Views.Tabs;
 
 public class ItemTypeFilterTab : ITwoColumnRuleConfigurationTab {
     private List<ItemUICategory>? searchResults;

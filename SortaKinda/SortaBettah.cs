@@ -1,22 +1,22 @@
 ﻿using Dalamud.Plugin;
 using KamiLib;
 using KamiLib.System;
-using SortaKinda.Controllers.Localization;
-using SortaKinda.System;
-using SortaKinda.Views.Windows;
+using SortaBettah.Controllers.Localization;
+using SortaBettah.System;
+using SortaBettah.Views.Windows;
 
-namespace SortaKinda;
+namespace SortaBettah;
 
-public sealed class SortaKindaPlugin : IDalamudPlugin {
-    public static SortaKindaController Controller = null!;
+public sealed class SortaBettahPlugin : IDalamudPlugin {
+    public static SortaBettahController Controller = null!;
 
-    public SortaKindaPlugin(DalamudPluginInterface pluginInterface) {
+    public SortaBettahPlugin(DalamudPluginInterface pluginInterface) {
         pluginInterface.Create<Service>();
 
-        KamiCommon.Initialize(pluginInterface, "SortaKinda");
+        KamiCommon.Initialize(pluginInterface, "SortaBettah");
         KamiCommon.RegisterLocalizationHandler(key => Strings.ResourceManager.GetString(key, Strings.Culture));
 
-        Controller = new SortaKindaController();
+        Controller = new SortaBettahController();
 
         CommandController.RegisterMainCommand("/sortakinda", "/sorta");
 

@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Numerics;
-using SortaKinda.Models;
-using SortaKinda.Models.Enums;
-using SortaKinda.Models.General;
+using SortaBettah.Models;
+using SortaBettah.Models.Enums;
+using SortaBettah.Models.General;
 
-namespace SortaKinda.Interfaces;
+namespace SortaBettah.Interfaces;
 
 public interface ISortingRule : IComparer<IInventorySlot> {
     Vector4 Color { get; set; }

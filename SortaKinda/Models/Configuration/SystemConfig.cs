@@ -1,6 +1,7 @@
-﻿namespace SortaKinda.Models.Configuration;
+﻿namespace SortaBettah.Models.Configuration;
 
-public class SystemConfig : ISortingConfig {
+public class SystemConfig : ISortingConfig
+{
     public string CharacterName { get; set; } = "Unknown Character Name";
     public string HomeWorld { get; set; } = "Unknown HomeWorld";
     public bool SortOnItemAdded { get; set; } = true;

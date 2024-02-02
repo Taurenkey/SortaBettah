@@ -4,11 +4,11 @@ using System.Linq;
 using Dalamud.Interface.Utility;
 using FFXIVClientStructs.FFXIV.Client.Game;
 using KamiLib.FileIO;
-using SortaKinda.Interfaces;
-using SortaKinda.Models.Configuration;
-using SortaKinda.Models.Enums;
+using SortaBettah.Interfaces;
+using SortaBettah.Models.Configuration;
+using SortaBettah.Models.Enums;
 
-namespace SortaKinda.System;
+namespace SortaBettah.System;
 
 public abstract class ModuleBase : IModule {
     private bool IsLoaded { get; set; }
@@ -81,7 +81,11 @@ public abstract class ModuleBase : IModule {
 
     protected abstract void Sort(params InventoryType[] inventories);
 
-    private IModuleConfig LoadConfig() => CharacterFileController.LoadFile<IModuleConfig>($"{ModuleName}.config.json", ModuleConfig);
+    private IModuleConfig LoadConfig() => SortaBettahController.ProfileConfig.UseAccountWideSettings ? FileController.LoadFile<IModuleConfig>($"{ModuleName}.config.json", ModuleConfig) : CharacterFileController.LoadFile<IModuleConfig>($"{ModuleName}.config.json", ModuleConfig);
 
-    private void SaveConfig() => CharacterFileController.SaveFile($"{ModuleName}.config.json", ModuleConfig.GetType(), ModuleConfig);
+    private void SaveConfig()
+    {
+        if (SortaBettahController.ProfileConfig.UseAccountWideSettings) FileController.SaveFile($"{ModuleName}.config.json", ModuleConfig.GetType(), ModuleConfig);
+        else CharacterFileController.SaveFile($"{ModuleName}.config.json", ModuleConfig.GetType(), ModuleConfig);
+    }
 }

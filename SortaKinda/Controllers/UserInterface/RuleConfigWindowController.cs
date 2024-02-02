@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using KamiLib;
-using SortaKinda.Models;
-using SortaKinda.Views.Windows;
+using SortaBettah.Models;
+using SortaBettah.Views.Windows;
 
-namespace SortaKinda.System;
+namespace SortaBettah.System;
 
 public class RuleConfigWindowController {
     public static void AddRuleConfigWindow(SortingRule rule, List<SortingRule> sortingRules) {

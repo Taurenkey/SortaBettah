@@ -1,10 +1,10 @@
 ﻿using KamiLib.Interfaces;
-using SortaKinda.System;
+using SortaBettah.System;
 
-namespace SortaKinda.Views.Tabs;
+namespace SortaBettah.Views.Tabs;
 
 public class GeneralConfigurationTab : ITabItem {
     public string TabName => "General Settings";
     public bool Enabled => true;
-    public void Draw() => SortaKindaController.DrawConfig();
+    public void Draw() => SortaBettahController.DrawConfig();
 }

@@ -7,10 +7,10 @@ using ImGuiNET;
 using KamiLib.Game;
 using KamiLib.Utility;
 using Lumina.Excel.GeneratedSheets;
-using SortaKinda.Interfaces;
-using SortaKinda.System;
+using SortaBettah.Interfaces;
+using SortaBettah.System;
 
-namespace SortaKinda.Views.SortControllerViews;
+namespace SortaBettah.Views.SortControllerViews;
 
 public class SortingRuleTooltipView {
     private readonly ISortingRule rule;

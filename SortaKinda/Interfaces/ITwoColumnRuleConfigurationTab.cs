@@ -1,6 +1,6 @@
 ﻿using ImGuiNET;
 
-namespace SortaKinda.Interfaces;
+namespace SortaBettah.Interfaces;
 
 public interface ITwoColumnRuleConfigurationTab : IRuleConfigurationTab {
     string FirstLabel { get; }

@@ -1,6 +1,6 @@
-﻿using SortaKinda.Interfaces;
+﻿using SortaBettah.Interfaces;
 
-namespace SortaKinda.Views.Tabs;
+namespace SortaBettah.Views.Tabs;
 
 public class ToggleFiltersTab : IOneColumnRuleConfigurationTab {
     public ToggleFiltersTab(ISortingRule rule) {

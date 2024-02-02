@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using FFXIVClientStructs.FFXIV.Client.Game;
-using SortaKinda.Interfaces;
-using SortaKinda.Models.Configuration;
-using SortaKinda.Models.Inventory;
+using SortaBettah.Interfaces;
+using SortaBettah.Models.Configuration;
+using SortaBettah.Models.Inventory;
 
-namespace SortaKinda.System;
+namespace SortaBettah.System;
 
 public class InventoryGrid : IInventoryGrid {
     public InventoryGrid(InventoryType type, InventoryConfig config) {

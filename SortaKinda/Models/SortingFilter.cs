@@ -1,7 +1,7 @@
 ﻿using System;
-using SortaKinda.Interfaces;
+using SortaBettah.Interfaces;
 
-namespace SortaKinda.Models;
+namespace SortaBettah.Models;
 
 public class SortingFilter {
     public required Func<bool> Active { get; init; }

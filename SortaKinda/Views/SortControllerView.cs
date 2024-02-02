@@ -6,11 +6,11 @@ using Dalamud.Utility;
 using ImGuiNET;
 using KamiLib.Game;
 using Newtonsoft.Json;
-using SortaKinda.Interfaces;
-using SortaKinda.Models;
-using SortaKinda.Views.Windows;
+using SortaBettah.Interfaces;
+using SortaBettah.Models;
+using SortaBettah.Views.Windows;
 
-namespace SortaKinda.Views.SortControllerViews;
+namespace SortaBettah.Views.SortControllerViews;
 
 public class SortControllerView {
     private readonly SortingRuleListView listView;

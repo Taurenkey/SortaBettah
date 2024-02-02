@@ -2,10 +2,10 @@
 using Dalamud.Interface.Components;
 using ImGuiNET;
 using KamiLib.Utility;
-using SortaKinda.Interfaces;
-using SortaKinda.Models.Enums;
+using SortaBettah.Interfaces;
+using SortaBettah.Models.Enums;
 
-namespace SortaKinda.Views.Tabs;
+namespace SortaBettah.Views.Tabs;
 
 public class OtherFiltersTab : ITwoColumnRuleConfigurationTab {
     public OtherFiltersTab(ISortingRule rule) {

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <PackageProjectUrl>https://github.com/MidoriKami/SortaKinda.git</PackageProjectUrl>
-        <Version>1.0.4.8</Version>
+        <PackageProjectUrl>https://github.com/Taurenkey/SortaBettah.git</PackageProjectUrl>
+        <Version>1.0.0.0</Version>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -16,7 +16,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Remove="SortaKinda.json" />
         <None Remove="README.md" />
         <None Remove="packages.lock.json" />
     </ItemGroup>
@@ -28,7 +27,7 @@
         <DalamudLibPath Condition="$(DALAMUD_HOME) != ''">$(DALAMUD_HOME)/</DalamudLibPath>
     </PropertyGroup>
 
-    <Import Project="$(DalamudLibPath)/targets/Dalamud.Plugin.targets"/>
+    <Import Project="$(DalamudLibPath)/targets/Dalamud.Plugin.targets" />
 
     <ItemGroup>
         <EmbeddedResource Update="Controllers\Localization\Strings.resx">

@@ -6,18 +6,18 @@ using Dalamud.Interface.Style;
 using Dalamud.Interface.Utility;
 using Dalamud.Interface.Windowing;
 using ImGuiNET;
-using SortaKinda.Models;
-using SortaKinda.System;
-using SortaKinda.Views.SortControllerViews;
+using SortaBettah.Models;
+using SortaBettah.System;
+using SortaBettah.Views.SortControllerViews;
 
-namespace SortaKinda.Views.Windows;
+namespace SortaBettah.Views.Windows;
 
 public class RuleConfigWindow : Window {
     private readonly List<SortingRule> ruleList;
     private readonly SortingRuleView view;
     public SortingRule Rule;
 
-    public RuleConfigWindow(SortingRule sortingRule, List<SortingRule> sortingRules) : base($"SortaKinda Rule Configuration - {sortingRule.Name}###RuleConfig{sortingRule.Id}") {
+    public RuleConfigWindow(SortingRule sortingRule, List<SortingRule> sortingRules) : base($"SortaBettah Rule Configuration - {sortingRule.Name}###RuleConfig{sortingRule.Id}") {
         Rule = sortingRule;
         ruleList = sortingRules;
         view = new SortingRuleView(sortingRule);
@@ -78,7 +78,7 @@ public class RuleConfigWindow : Window {
         var imGuiName = Rule.Name;
         if (ImGui.InputText("##NameEdit", ref imGuiName, 1024, ImGuiInputTextFlags.AutoSelectAll)) {
             Rule.Name = imGuiName;
-            WindowName = $"SortaKinda Rule Configuration - {Rule.Name}###RuleConfig{Rule.Id}";
+            WindowName = $"SortaBettah Rule Configuration - {Rule.Name}###RuleConfig{Rule.Id}";
         }
     }
 
@@ -108,7 +108,7 @@ public class RuleConfigWindow : Window {
         ImGui.SetNextWindowSize(new Vector2(200.0f, 200.0f), ImGuiCond.Always);
         if (ImGui.BeginPopup("Advanced Options")) {
             if (ImGui.Checkbox("Use Inclusive Logic", ref Rule.InclusiveAnd)) {
-                SortaKindaController.SortController.SaveConfig();
+                SortaBettahController.SortController.SaveConfig();
             }
             
             ImGui.EndPopup();
@@ -116,7 +116,7 @@ public class RuleConfigWindow : Window {
     }
 
     public override void OnClose() {
-        SortaKindaController.SortController.SaveConfig();
+        SortaBettahController.SortController.SaveConfig();
         RuleConfigWindowController.RemoveRuleConfigWindow(this);
     }
 }

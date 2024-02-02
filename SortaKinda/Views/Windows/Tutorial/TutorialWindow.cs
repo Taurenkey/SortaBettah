@@ -4,9 +4,9 @@ using ImGuiNET;
 using KamiLib;
 using KamiLib.Interfaces;
 using KamiLib.UserInterface;
-using SortaKinda.Views.Tabs;
+using SortaBettah.Views.Tabs;
 
-namespace SortaKinda.Views.Windows;
+namespace SortaBettah.Views.Windows;
 
 public class TutorialWindow : Window {
     private static TutorialWindow? _instance;
@@ -14,7 +14,7 @@ public class TutorialWindow : Window {
 
     private readonly TabBar tabBar;
 
-    private TutorialWindow() : base("SortaKinda - Tutorial") {
+    private TutorialWindow() : base("SortaBettah - Tutorial") {
         Size = new Vector2(640, 425);
 
         Flags |= ImGuiWindowFlags.NoScrollbar;

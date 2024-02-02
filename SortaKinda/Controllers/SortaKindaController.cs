@@ -7,22 +7,24 @@ using KamiLib.Command;
 using KamiLib.FileIO;
 using KamiLib.Game;
 using KamiLib.System;
-using SortaKinda.Models.Configuration;
+using SortaBettah.Models.Configuration;
 
-namespace SortaKinda.System;
+namespace SortaBettah.System;
 
-public class SortaKindaController : IDisposable {
+public class SortaBettahController : IDisposable {
     public static ModuleController ModuleController = null!;
     public static SortController SortController = null!;
     public static SystemConfig SystemConfig = null!;
+    public static ProfileConfig ProfileConfig = null!;
     public static SortingThreadController SortingThreadController = null!;
 
     private uint lastJob = uint.MaxValue;
     private DateTime lastSortCommand = DateTime.MinValue;
 
-    public SortaKindaController() {
+    public SortaBettahController() {
         SortingThreadController = new SortingThreadController();
         SystemConfig = new SystemConfig();
+        ProfileConfig =  new ProfileConfig();
         SortController = new SortController();
         ModuleController = new ModuleController();
 
@@ -53,8 +55,9 @@ public class SortaKindaController : IDisposable {
 
     private void OnLogin() {
         if (!Service.ClientState.IsLoggedIn) return;
-        if (Service.ClientState.IsPvP) return;
         if (Service.ClientState is not { LocalPlayer: { Name.TextValue: var playerName, HomeWorld.GameData.InternalName.RawString: var worldName } }) return;
+
+        ProfileConfig = LoadProfileConfig() ?? new();
 
         SystemConfig = new SystemConfig();
         SystemConfig = LoadConfig();
@@ -76,7 +79,6 @@ public class SortaKindaController : IDisposable {
 
     private void OnUpdate(IFramework framework) {
         if (!Service.ClientState.IsLoggedIn) return;
-        if (Service.ClientState.IsPvP) return;
         if (Service.ClientState is not { LocalPlayer.ClassJob.Id: var classJobId }) return;
         
         // Don't update modules if the Retainer transfer window is open
@@ -97,7 +99,6 @@ public class SortaKindaController : IDisposable {
 
     private void OnZoneChange(ushort e) {
         if (!Service.ClientState.IsLoggedIn) return;
-        if (Service.ClientState.IsPvP) return;
 
         if (SystemConfig.SortOnZoneChange) ModuleController.Sort();
     }
@@ -120,7 +121,21 @@ public class SortaKindaController : IDisposable {
     
     public static void DrawConfig() => DrawableAttribute.DrawAttributes(SystemConfig, SaveConfig);
 
-    private static SystemConfig LoadConfig() => CharacterFileController.LoadFile<SystemConfig>("System.config.json", SystemConfig);
+    public static void DrawProfileConfig() => DrawableAttribute.DrawAttributes(ProfileConfig, SaveProfileConfig);
+    private static SystemConfig LoadConfig() => ProfileConfig.UseAccountWideSettings ? FileController.LoadFile<SystemConfig>("System.config.json", SystemConfig) : CharacterFileController.LoadFile<SystemConfig>("System.config.json", SystemConfig);
 
-    private static void SaveConfig() => CharacterFileController.SaveFile("System.config.json", SystemConfig.GetType(), SystemConfig);
+    private static ProfileConfig LoadProfileConfig() => FileController.LoadFile<ProfileConfig>("Profile.config.json", ProfileConfig);
+
+    private static void SaveConfig()
+    {
+        if (ProfileConfig.UseAccountWideSettings) FileController.SaveFile("System.config.json", SystemConfig.GetType(), SystemConfig); 
+        else CharacterFileController.SaveFile("System.config.json", SystemConfig.GetType(), SystemConfig);
+    }
+
+    private static void SaveProfileConfig()
+    {
+        FileController.SaveFile("Profile.config.json", ProfileConfig.GetType(), ProfileConfig);
+        ModuleController.Load();
+        SortController.Load();
+    }
 }

@@ -1,4 +1,4 @@
-namespace SortaKinda.Models.Enums;
+namespace SortaBettah.Models.Enums;
 
 public enum ChangelogState {
     Added,

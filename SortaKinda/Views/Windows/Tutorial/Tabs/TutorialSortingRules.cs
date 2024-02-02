@@ -3,7 +3,7 @@ using Dalamud.Interface.Utility;
 using ImGuiNET;
 using KamiLib.Interfaces;
 
-namespace SortaKinda.Views.Tabs;
+namespace SortaBettah.Views.Tabs;
 
 public class TutorialSortingRules : ITabItem {
     public string TabName => "Sorting Rules";
@@ -24,5 +24,5 @@ public class TutorialSortingRules : ITabItem {
                                             "If multiple types of filters are used in the same rule, then an item will only be allowed if all filter types permit it.\n\n" +
                                             "For example, if you set a rule with ItemType: Miscallany, and ItemRarity: Green, then only items that are both Miscellany AND Green rarity will be allowed in those slots.\n\n" +
                                             "Items that don't match any rules will be moved into the 'Unsorted' sections of your inventory. You must always have some inventory slots marked as 'Unsorted'.\n\n" +
-                                            "If SortaKinda is unable to move an item out of a sorted section into a 'Unsorted' section, then it will act as if that item belongs in the sorted section and order it based on that sections rule.";
+                                            "If SortaBettah is unable to move an item out of a sorted section into a 'Unsorted' section, then it will act as if that item belongs in the sorted section and order it based on that sections rule.";
 }

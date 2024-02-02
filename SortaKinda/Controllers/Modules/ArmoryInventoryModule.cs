@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using FFXIVClientStructs.FFXIV.Client.Game;
-using SortaKinda.Interfaces;
-using SortaKinda.Models.Configuration;
-using SortaKinda.Models.Enums;
-using SortaKinda.Views.SortControllerViews;
+using SortaBettah.Interfaces;
+using SortaBettah.Models.Configuration;
+using SortaBettah.Models.Enums;
+using SortaBettah.Views.SortControllerViews;
 
-namespace SortaKinda.System.Modules;
+namespace SortaBettah.System.Modules;
 
 public class ArmoryInventoryModule : ModuleBase {
     protected override List<IInventoryGrid> Inventories { get; set; } = null!;
@@ -36,7 +36,7 @@ public class ArmoryInventoryModule : ModuleBase {
         foreach (var type in inventoryTypes) {
             if (Inventories.FirstOrDefault(inventory => inventory.Type == type) is { } targetInventory) {
                 if (targetInventory.Inventory.Any(slot => slot.Rule.Id is not SortController.DefaultId)) {
-                    SortaKindaController.SortingThreadController.AddSortingTask(targetInventory.Type, targetInventory);
+                    SortaBettahController.SortingThreadController.AddSortingTask(targetInventory.Type, targetInventory);
                 }
             }
         }

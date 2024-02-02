@@ -4,13 +4,13 @@ using System.Linq;
 using System.Numerics;
 using FFXIVClientStructs.FFXIV.Client.Game;
 using Lumina.Excel.GeneratedSheets;
-using SortaKinda.Interfaces;
-using SortaKinda.Models.Enums;
-using SortaKinda.Models.General;
-using SortaKinda.System;
-using SortaKinda.Views.SortControllerViews;
+using SortaBettah.Interfaces;
+using SortaBettah.Models.Enums;
+using SortaBettah.Models.General;
+using SortaBettah.System;
+using SortaBettah.Views.SortControllerViews;
 
-namespace SortaKinda.Models;
+namespace SortaBettah.Models;
 
 public unsafe class SortingRule : ISortingRule {
     private readonly SortingRuleTooltipView view;

@@ -4,11 +4,11 @@ using System.Linq;
 using Dalamud.Game.Inventory;
 using Dalamud.Game.Inventory.InventoryEventArgTypes;
 using FFXIVClientStructs.FFXIV.Client.Game;
-using SortaKinda.Interfaces;
-using SortaKinda.Models.Enums;
-using SortaKinda.System.Modules;
+using SortaBettah.Interfaces;
+using SortaBettah.Models.Enums;
+using SortaBettah.System.Modules;
 
-namespace SortaKinda.System;
+namespace SortaBettah.System;
 
 public class ModuleController : IDisposable {
     private readonly IEnumerable<IModule> modules = new List<IModule> {
@@ -110,12 +110,12 @@ public class ModuleController : IDisposable {
     }
 
     private static bool IsEventAllowed(InventoryEventArgs arg) => arg.Type switch {
-        GameInventoryEvent.Added when SortaKindaController.SystemConfig.SortOnItemAdded => true,
-        GameInventoryEvent.Removed when SortaKindaController.SystemConfig.SortOnItemRemoved => true,
-        GameInventoryEvent.Changed when SortaKindaController.SystemConfig.SortOnItemChanged => true,
-        GameInventoryEvent.Moved when SortaKindaController.SystemConfig.SortOnItemMoved => true,
-        GameInventoryEvent.Split when SortaKindaController.SystemConfig.SortOnItemSplit => true,
-        GameInventoryEvent.Merged when SortaKindaController.SystemConfig.SortOnItemMerged => true,
+        GameInventoryEvent.Added when SortaBettahController.SystemConfig.SortOnItemAdded => true,
+        GameInventoryEvent.Removed when SortaBettahController.SystemConfig.SortOnItemRemoved => true,
+        GameInventoryEvent.Changed when SortaBettahController.SystemConfig.SortOnItemChanged => true,
+        GameInventoryEvent.Moved when SortaBettahController.SystemConfig.SortOnItemMoved => true,
+        GameInventoryEvent.Split when SortaBettahController.SystemConfig.SortOnItemSplit => true,
+        GameInventoryEvent.Merged when SortaBettahController.SystemConfig.SortOnItemMerged => true,
         _ => false
     };
 }

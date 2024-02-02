@@ -3,9 +3,9 @@ using Dalamud.Interface.Components;
 using Dalamud.Interface.Utility;
 using ImGuiNET;
 using KamiLib.Utility;
-using SortaKinda.Interfaces;
+using SortaBettah.Interfaces;
 
-namespace SortaKinda.Views.Tabs;
+namespace SortaBettah.Views.Tabs;
 
 public class SortOrderTab : ITwoColumnRuleConfigurationTab {
     public SortOrderTab(ISortingRule rule) {

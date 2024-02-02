@@ -3,7 +3,7 @@ using Dalamud.Interface.Utility;
 using ImGuiNET;
 using KamiLib.Interfaces;
 
-namespace SortaKinda.Views.Tabs;
+namespace SortaBettah.Views.Tabs;
 
 public class TutorialConfiguringInventory : ITabItem {
     public string TabName => "Using Rules";

@@ -3,12 +3,12 @@ using System.Drawing;
 using System.Linq;
 using Dalamud.Interface;
 using KamiLib.FileIO;
-using SortaKinda.Interfaces;
-using SortaKinda.Models;
-using SortaKinda.Models.Configuration;
-using SortaKinda.Views.SortControllerViews;
+using SortaBettah.Interfaces;
+using SortaBettah.Models;
+using SortaBettah.Models.Configuration;
+using SortaBettah.Views.SortControllerViews;
 
-namespace SortaKinda.System;
+namespace SortaBettah.System;
 
 public class SortController : ISortController {
     public const string DefaultId = "Default";
@@ -26,7 +26,7 @@ public class SortController : ISortController {
 
     public List<SortingRule> Rules => RuleConfig.Rules;
 
-    public void SortAllInventories() => SortaKindaController.ModuleController.Sort();
+    public void SortAllInventories() => SortaBettahController.ModuleController.Sort();
 
     public void Load() {
         RuleConfig = new SortingRuleConfig();
@@ -68,8 +68,12 @@ public class SortController : ISortController {
             RuleConfig.Rules[0] = DefaultRule;
         }
     }
-    
-    public void SaveConfig() => CharacterFileController.SaveFile("SortingRules.config.json", RuleConfig.GetType(), RuleConfig);
 
-    private SortingRuleConfig LoadConfig() => CharacterFileController.LoadFile<SortingRuleConfig>("SortingRules.config.json", RuleConfig);
+    public void SaveConfig()
+    {
+        if (SortaBettahController.ProfileConfig.UseAccountWideSettings) FileController.SaveFile("SortingRules.config.json", RuleConfig.GetType(), RuleConfig);
+        else CharacterFileController.SaveFile("SortingRules.config.json", RuleConfig.GetType(), RuleConfig);
+    }
+
+    private SortingRuleConfig LoadConfig() => SortaBettahController.ProfileConfig.UseAccountWideSettings ? FileController.LoadFile<SortingRuleConfig>("SortingRules.config.json", RuleConfig) : CharacterFileController.LoadFile<SortingRuleConfig>("SortingRules.config.json", RuleConfig);
 }

@@ -1,7 +1,7 @@
 ﻿using Dalamud.Interface.Utility;
 using ImGuiNET;
 
-namespace SortaKinda.Models;
+namespace SortaBettah.Models;
 
 public class RangeFilter {
     public bool Enable;

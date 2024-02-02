@@ -4,10 +4,10 @@ using Dalamud.Interface;
 using Dalamud.Interface.Components;
 using Dalamud.Interface.Utility;
 using ImGuiNET;
-using SortaKinda.Interfaces;
-using SortaKinda.Models;
+using SortaBettah.Interfaces;
+using SortaBettah.Models;
 
-namespace SortaKinda.Views.Tabs;
+namespace SortaBettah.Views.Tabs;
 
 public class ItemNameFilterTab : IOneColumnRuleConfigurationTab
 {

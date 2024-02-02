@@ -6,11 +6,11 @@ using Dalamud.Interface;
 using Dalamud.Interface.Components;
 using Dalamud.Interface.Utility;
 using ImGuiNET;
-using SortaKinda.Interfaces;
-using SortaKinda.Models;
-using SortaKinda.System;
+using SortaBettah.Interfaces;
+using SortaBettah.Models;
+using SortaBettah.System;
 
-namespace SortaKinda.Views.SortControllerViews;
+namespace SortaBettah.Views.SortControllerViews;
 
 public class SortingRuleListView {
     private readonly ISortController controller;
@@ -44,7 +44,7 @@ public class SortingRuleListView {
 
         if (deletionRuleId is { } ruleToDelete) {
             if (ruleToDelete == sortingRules.Count) {
-                SortaKindaController.SortController.SelectedRuleIndex = sortingRules.Count - 1;
+                SortaBettahController.SortController.SelectedRuleIndex = sortingRules.Count - 1;
             }
             sortingRules.RemoveAt(ruleToDelete);
             controller.SaveConfig();
@@ -107,7 +107,7 @@ public class SortingRuleListView {
 
     private static void DrawRadioButton(int index) {
         ImGui.SameLine();
-        ImGui.RadioButton($"##Selected{index}", ref SortaKindaController.SortController.SelectedRuleIndex, index);
+        ImGui.RadioButton($"##Selected{index}", ref SortaBettahController.SortController.SelectedRuleIndex, index);
     }
 
     private void DrawRuleEntry(SortingRule rule, int index) {

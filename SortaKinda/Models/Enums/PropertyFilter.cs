@@ -1,6 +1,6 @@
 ﻿using KamiLib.AutomaticUserInterface;
 
-namespace SortaKinda.Models.Enums;
+namespace SortaBettah.Models.Enums;
 
 public enum PropertyFilter {
     [EnumLabel("Untradable")]

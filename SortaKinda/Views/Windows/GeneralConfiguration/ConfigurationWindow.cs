@@ -10,10 +10,10 @@ using KamiLib.Game;
 using KamiLib.Interfaces;
 using KamiLib.System;
 using KamiLib.UserInterface;
-using SortaKinda.System;
-using SortaKinda.Views.Tabs;
+using SortaBettah.System;
+using SortaBettah.Views.Tabs;
 
-namespace SortaKinda.Views.Windows;
+namespace SortaBettah.Views.Windows;
 
 public class ConfigurationWindow : Window {
     private readonly AreaPaintController areaPaintController = new();
@@ -22,12 +22,13 @@ public class ConfigurationWindow : Window {
         TabItems = new List<ITabItem> {
             new MainInventoryTab(),
             new ArmoryInventoryTab(),
-            new GeneralConfigurationTab()
+            new GeneralConfigurationTab(),
+            new ProfileConfigurationTab()
         },
-        Id = "SortaKindaConfigTabBar"
+        Id = "SortaBettahConfigTabBar"
     };
 
-    public ConfigurationWindow() : base("SortaKinda - Configuration Window") {
+    public ConfigurationWindow() : base("SortaBettah - Configuration Window") {
         Size = new Vector2(840, 636);
 
         Flags |= ImGuiWindowFlags.NoScrollbar;
@@ -37,7 +38,7 @@ public class ConfigurationWindow : Window {
         CommandController.RegisterCommands(this);
     }
 
-    public override bool DrawConditions() => Service.ClientState is { IsLoggedIn: true, IsPvP: false, LocalContentId: not 0, LocalPlayer: not null };
+    public override bool DrawConditions() => Service.ClientState is { IsLoggedIn: true, LocalContentId: not 0, LocalPlayer: not null };
 
     public override void PreDraw() {
         ImGui.PushStyleVar(ImGuiStyleVar.WindowPadding, StyleModelV1.DalamudStandard.WindowPadding * ImGuiHelpers.GlobalScale);
@@ -60,10 +61,6 @@ public class ConfigurationWindow : Window {
     [BaseCommandHandler("OpenConfigWindow")]
     public void OpenConfigWindow() {
         if (!Service.ClientState.IsLoggedIn) return;
-        if (Service.ClientState.IsPvP) {
-            Chat.PrintError("The configuration menu cannot be opened while in a PvP area");
-            return;
-        }
 
         Toggle();
     }

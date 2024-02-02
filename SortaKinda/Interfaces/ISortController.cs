@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using SortaKinda.Models;
+using SortaBettah.Models;
 
-namespace SortaKinda.Interfaces;
+namespace SortaBettah.Interfaces;
 
 public interface ISortController {
     List<SortingRule> Rules { get; }

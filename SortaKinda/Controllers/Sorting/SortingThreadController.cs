@@ -5,9 +5,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using FFXIVClientStructs.FFXIV.Client.Game;
 using FFXIVClientStructs.FFXIV.Client.UI.Misc;
-using SortaKinda.Interfaces;
+using SortaBettah.Interfaces;
 
-namespace SortaKinda.System;
+namespace SortaBettah.System;
 
 public unsafe class SortingThreadController : IDisposable {
     private readonly List<Task> sortingTasks = new();

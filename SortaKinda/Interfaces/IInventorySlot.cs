@@ -3,7 +3,7 @@ using FFXIVClientStructs.FFXIV.Client.Game;
 using FFXIVClientStructs.FFXIV.Client.UI.Misc;
 using Lumina.Excel.GeneratedSheets;
 
-namespace SortaKinda.Interfaces;
+namespace SortaBettah.Interfaces;
 
 public unsafe interface IInventorySlot {
     [MemberNotNullWhen(true, "ExdItem")] bool HasItem { get; }

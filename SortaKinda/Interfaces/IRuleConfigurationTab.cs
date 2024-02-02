@@ -4,9 +4,9 @@ using Dalamud.Interface;
 using Dalamud.Interface.Utility;
 using ImGuiNET;
 using KamiLib.Interfaces;
-using SortaKinda.System;
+using SortaBettah.System;
 
-namespace SortaKinda.Interfaces;
+namespace SortaBettah.Interfaces;
 
 public interface IRuleConfigurationTab : ITabItem {
     private static Vector2 FooterSize => ImGuiHelpers.ScaledVector2(0.0f, 30.0f);
@@ -35,15 +35,15 @@ public interface IRuleConfigurationTab : ITabItem {
         ImGui.SameLine(ImGui.GetContentRegionAvail().X - buttonSize.X * 2.0f - ImGui.GetStyle().ItemSpacing.X);
         ImGui.SetCursorPosY(ImGui.GetCursorPosY() - 3.0f * ImGuiHelpers.GlobalScale);
         if (ImGui.Button("Save", buttonSize)) {
-            SortaKindaController.ModuleController.Sort();
-            SortaKindaController.SortController.SaveConfig();
+            SortaBettahController.ModuleController.Sort();
+            SortaBettahController.SortController.SaveConfig();
         }
 
         ImGui.SameLine();
         ImGui.SetCursorPosY(ImGui.GetCursorPosY() - 3.0f * ImGuiHelpers.GlobalScale);
         if (ImGui.Button("Save & Close", buttonSize)) {
-            SortaKindaController.ModuleController.Sort();
-            SortaKindaController.SortController.SaveConfig();
+            SortaBettahController.ModuleController.Sort();
+            SortaBettahController.SortController.SaveConfig();
             RuleConfigWindowController.RemoveRuleConfigWindow(SortingRule.Id);
         }
     }

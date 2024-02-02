@@ -2,12 +2,12 @@
 using System.Linq;
 using System.Numerics;
 using FFXIVClientStructs.FFXIV.Client.Game;
-using SortaKinda.Interfaces;
-using SortaKinda.Models.Configuration;
-using SortaKinda.Models.Enums;
-using SortaKinda.Views.SortControllerViews;
+using SortaBettah.Interfaces;
+using SortaBettah.Models.Configuration;
+using SortaBettah.Models.Enums;
+using SortaBettah.Views.SortControllerViews;
 
-namespace SortaKinda.System.Modules;
+namespace SortaBettah.System.Modules;
 
 public class MainInventoryModule : ModuleBase {
     private QuadInventoryView? view;
@@ -30,7 +30,7 @@ public class MainInventoryModule : ModuleBase {
 
     protected override void Sort(params InventoryType[] inventoryTypes) {
         if (Inventories.SelectMany(inventory => inventory.Inventory).Any(slot => slot.Rule.Id is not SortController.DefaultId)) {
-            SortaKindaController.SortingThreadController.AddSortingTask(InventoryType.Inventory1, Inventories.ToArray());
+            SortaBettahController.SortingThreadController.AddSortingTask(InventoryType.Inventory1, Inventories.ToArray());
         }
     }
 }

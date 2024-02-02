@@ -1,0 +1,16 @@
+{
+  "Author": "Taurenkey (but mostly MidoriKami)",
+  "Name": "SortaBettah",
+  "Punchline": "Total customization of your inventory (now with 99% less PvP locking)",
+  "Description": "Sort your inventory however you want and keep it sorted.",
+  "Tags": [
+    "utility"
+  ],
+  "CategoryTags": [
+    "Utility",
+    "Other"
+  ],
+  "InternalName": "sortabettah",
+  "RepoUrl": "https://github.com/Taurenkey/SortaBettah",
+  "AcceptsFeedback": false
+}

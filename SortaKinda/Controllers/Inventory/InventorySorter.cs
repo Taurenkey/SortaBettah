@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using FFXIVClientStructs.FFXIV.Client.Game;
 using KamiLib.NativeUi;
-using SortaKinda.Interfaces;
+using SortaBettah.Interfaces;
 
-namespace SortaKinda.System;
+namespace SortaBettah.System;
 
 public unsafe class InventorySorter {
     private static void SwapItems(IReadOnlyList<IInventorySlot> targetSlots, IReadOnlyList<IInventorySlot> sourceSlots) {
@@ -46,7 +46,7 @@ public unsafe class InventorySorter {
     }, $"Exception Caught During Sorting '{type}'");
 
     private static void MoveItemsIntoCategories(IInventoryGrid[] grids, IReadOnlyCollection<ISortingRule> rulesForInventory) {
-        foreach (var rule in SortaKindaController.SortController.Rules) {
+        foreach (var rule in SortaBettahController.SortController.Rules) {
             if (rule.Id is SortController.DefaultId) continue;
 
             var higherPriorityRules = rulesForInventory.Where(otherRules => otherRules.Index > rule.Index).ToList();
@@ -73,7 +73,7 @@ public unsafe class InventorySorter {
     }
 
     private static void RemoveItemsFromCategories(IInventoryGrid[] grids) {
-        foreach (var rule in SortaKindaController.SortController.Rules) {
+        foreach (var rule in SortaBettahController.SortController.Rules) {
             if (rule.Id is SortController.DefaultId) continue;
 
             // Get all IInventorySlot's for this rule, where the item doesn't match the filter
@@ -93,8 +93,8 @@ public unsafe class InventorySorter {
     }
 
     private static void SortCategories(IInventoryGrid[] grids) {
-        foreach (var rule in SortaKindaController.SortController.Rules) {
-            if (rule.Id is SortController.DefaultId && !SortaKindaController.SystemConfig.ReorderUnsortedItems) continue;
+        foreach (var rule in SortaBettahController.SortController.Rules) {
+            if (rule.Id is SortController.DefaultId && !SortaBettahController.SystemConfig.ReorderUnsortedItems) continue;
 
             // Get all target slots this rule applies to
             var targetSlotsForRule = grids

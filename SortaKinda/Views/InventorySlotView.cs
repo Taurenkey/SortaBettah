@@ -2,10 +2,10 @@
 using System.Numerics;
 using Dalamud.Interface.Utility;
 using ImGuiNET;
-using SortaKinda.Interfaces;
-using SortaKinda.System;
+using SortaBettah.Interfaces;
+using SortaBettah.System;
 
-namespace SortaKinda.Views.SortControllerViews;
+namespace SortaBettah.Views.SortControllerViews;
 
 public class InventorySlotView {
     private readonly Vector2 drawPosition;

@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using KamiLib.Interfaces;
 using KamiLib.UserInterface;
-using SortaKinda.Interfaces;
-using SortaKinda.Views.Tabs;
+using SortaBettah.Interfaces;
+using SortaBettah.Views.Tabs;
 
-namespace SortaKinda.Views.SortControllerViews;
+namespace SortaBettah.Views.SortControllerViews;
 
 public class SortingRuleView {
     private readonly TabBar tabBar;

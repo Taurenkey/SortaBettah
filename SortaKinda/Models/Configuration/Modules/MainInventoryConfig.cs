@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using FFXIVClientStructs.FFXIV.Client.Game;
 
-namespace SortaKinda.Models.Configuration;
+namespace SortaBettah.Models.Configuration;
 
 public class MainInventoryConfig : IModuleConfig {
     public List<InventoryConfig> InventoryConfigs { get; set; } = new() {

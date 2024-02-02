@@ -1,6 +1,6 @@
 ﻿using KamiLib.AutomaticUserInterface;
 
-namespace SortaKinda.Models;
+namespace SortaBettah.Models;
 
 [Category("SortingOptions")]
 public interface ISortingConfig {

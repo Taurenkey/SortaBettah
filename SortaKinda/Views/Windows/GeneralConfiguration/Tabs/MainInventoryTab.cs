@@ -1,11 +1,11 @@
-﻿using SortaKinda.Interfaces;
-using SortaKinda.Models.Enums;
-using SortaKinda.System;
+﻿using SortaBettah.Interfaces;
+using SortaBettah.Models.Enums;
+using SortaBettah.System;
 
-namespace SortaKinda.Views.Tabs;
+namespace SortaBettah.Views.Tabs;
 
 public class MainInventoryTab : IInventoryConfigurationTab {
     public string TabName => "Main Inventory";
     public bool Enabled => true;
-    public void DrawInventory() => SortaKindaController.ModuleController.DrawModule(ModuleName.MainInventory);
+    public void DrawInventory() => SortaBettahController.ModuleController.DrawModule(ModuleName.MainInventory);
 }

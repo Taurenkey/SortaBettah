@@ -1,12 +1,12 @@
 ﻿using ImGuiNET;
 using KamiLib.Interfaces;
-using SortaKinda.System;
+using SortaBettah.System;
 
-namespace SortaKinda.Interfaces;
+namespace SortaBettah.Interfaces;
 
 public interface IInventoryConfigurationTab : ITabItem {
     void ITabItem.Draw() {
-        if (ImGui.BeginTable("##SortaKindaInventoryConfigTable", 2, ImGuiTableFlags.SizingStretchSame)) {
+        if (ImGui.BeginTable("##SortaBettahInventoryConfigTable", 2, ImGuiTableFlags.SizingStretchSame)) {
             ImGui.TableNextColumn();
             if (ImGui.BeginChild("##ConfigChild", ImGui.GetContentRegionAvail() - ImGui.GetStyle().FramePadding)) {
                 DrawRuleConfiguration();
@@ -23,7 +23,7 @@ public interface IInventoryConfigurationTab : ITabItem {
         }
     }
 
-    void DrawRuleConfiguration() => SortaKindaController.SortController.Draw();
+    void DrawRuleConfiguration() => SortaBettahController.SortController.Draw();
 
     void DrawInventory();
 }

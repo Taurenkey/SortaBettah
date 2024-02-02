@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 using Dalamud.Interface;
-using SortaKinda.System;
+using SortaBettah.System;
 
-namespace SortaKinda.Models.Configuration;
+namespace SortaBettah.Models.Configuration;
 
 public class SortingRuleConfig {
     public List<SortingRule> Rules { get; set; } = new() {

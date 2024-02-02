@@ -2,11 +2,11 @@
 using FFXIVClientStructs.FFXIV.Client.UI.Misc;
 using KamiLib.Game;
 using Lumina.Excel.GeneratedSheets;
-using SortaKinda.Interfaces;
-using SortaKinda.Models.Configuration;
-using SortaKinda.System;
+using SortaBettah.Interfaces;
+using SortaBettah.Models.Configuration;
+using SortaBettah.System;
 
-namespace SortaKinda.Models.Inventory;
+namespace SortaBettah.Models.Inventory;
 
 public unsafe class InventorySlot : IInventorySlot {
     public InventorySlot(InventoryType type, SlotConfig config, int index) {
@@ -24,7 +24,7 @@ public unsafe class InventorySlot : IInventorySlot {
 
     public ISortingRule Rule {
         get {
-            var sortControllerRule = SortaKindaController.SortController.GetRule(Config.RuleId);
+            var sortControllerRule = SortaBettahController.SortController.GetRule(Config.RuleId);
 
             if (sortControllerRule.Id != Config.RuleId) {
                 TryApplyRule(sortControllerRule.Id);
@@ -35,11 +35,11 @@ public unsafe class InventorySlot : IInventorySlot {
 
     public int Slot { get; init; }
 
-    public void OnLeftClick() => TryApplyRule(SortaKindaController.SortController.SelectedRule.Id);
+    public void OnLeftClick() => TryApplyRule(SortaBettahController.SortController.SelectedRule.Id);
 
     public void OnRightClick() => TryApplyRule(SortController.DefaultId);
 
-    public void OnDragCollision() => TryApplyRule(SortaKindaController.SortController.SelectedRule.Id);
+    public void OnDragCollision() => TryApplyRule(SortaBettahController.SortController.SelectedRule.Id);
 
     public void OnHover() => Rule.ShowTooltip();
 

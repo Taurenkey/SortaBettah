@@ -2,7 +2,7 @@
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
 
-namespace SortaKinda;
+namespace SortaBettah;
 
 public class Service {
     [PluginService] public static DalamudPluginInterface PluginInterface { get; set; } = null!;

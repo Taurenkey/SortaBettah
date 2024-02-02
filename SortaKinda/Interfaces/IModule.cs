@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using FFXIVClientStructs.FFXIV.Client.Game;
-using SortaKinda.Models.Enums;
+using SortaBettah.Models.Enums;
 
-namespace SortaKinda.Interfaces;
+namespace SortaBettah.Interfaces;
 
 public interface IModule : IDisposable {
     ModuleName ModuleName { get; }
