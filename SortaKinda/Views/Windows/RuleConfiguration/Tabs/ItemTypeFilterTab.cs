@@ -38,7 +38,7 @@ public class ItemTypeFilterTab : ITwoColumnRuleConfigurationTab {
 
             foreach (var category in SortingRule.AllowedItemTypes) {
                 if (LuminaCache<ItemUICategory>.Instance.GetRow(category) is not { Icon: var iconCategory, Name.RawString: var entryName }) continue;
-                if (Service.TextureProvider.GetIcon((uint) iconCategory) is not { } iconTexture) continue;
+                if (Service.TextureProvider.GetFromGameIcon(new((uint) iconCategory)) is not { } iconTexture) continue;
 
                 if (ImGuiComponents.IconButton($"##RemoveButton{category}", FontAwesomeIcon.Trash)) {
                     removalEntry = category;
@@ -46,7 +46,7 @@ public class ItemTypeFilterTab : ITwoColumnRuleConfigurationTab {
 
                 ImGui.SameLine();
                 ImGui.SetCursorPosY(ImGui.GetCursorPosY() + 1.0f * ImGuiHelpers.GlobalScale);
-                ImGui.Image(iconTexture.ImGuiHandle, ImGuiHelpers.ScaledVector2(20.0f, 20.0f));
+                ImGui.Image(iconTexture.RentAsync().Result.ImGuiHandle, ImGuiHelpers.ScaledVector2(20.0f, 20.0f));
 
                 ImGui.SameLine();
                 ImGui.TextUnformatted(entryName);
@@ -102,10 +102,10 @@ public class ItemTypeFilterTab : ITwoColumnRuleConfigurationTab {
                         }
                     }
 
-                    if (Service.TextureProvider.GetIcon((uint) result.Icon) is { } icon) {
+                    if (Service.TextureProvider.GetFromGameIcon(new((uint) result.Icon)) is { } icon) {
                         ImGui.SameLine();
                         ImGui.SetCursorPosY(ImGui.GetCursorPosY() + 1.0f * ImGuiHelpers.GlobalScale);
-                        ImGui.Image(icon.ImGuiHandle, ImGuiHelpers.ScaledVector2(20.0f, 20.0f));
+                        ImGui.Image(icon.RentAsync().Result.ImGuiHandle, ImGuiHelpers.ScaledVector2(20.0f, 20.0f));
                     }
 
                     ImGui.SameLine();

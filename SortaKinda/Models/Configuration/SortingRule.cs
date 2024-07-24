@@ -129,7 +129,7 @@ public unsafe class SortingRule : ISortingRule {
                 // They are the same item
                 if (firstItem.RowId == secondItem.RowId) {
                     // if left is not HQ, and right is HQ, swap
-                    if (!a.InventoryItem->Flags.HasFlag(InventoryItem.ItemFlags.HQ) && b.InventoryItem->Flags.HasFlag(InventoryItem.ItemFlags.HQ)) {
+                    if (!a.InventoryItem->Flags.HasFlag(InventoryItem.ItemFlags.HighQuality) && b.InventoryItem->Flags.HasFlag(InventoryItem.ItemFlags.HighQuality)) {
                         shouldSwap = true;
                     }
                     // else if left has lower quantity then right, swap

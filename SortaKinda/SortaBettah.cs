@@ -10,7 +10,7 @@ namespace SortaBettah;
 public sealed class SortaBettahPlugin : IDalamudPlugin {
     public static SortaBettahController Controller = null!;
 
-    public SortaBettahPlugin(DalamudPluginInterface pluginInterface) {
+    public SortaBettahPlugin(IDalamudPluginInterface pluginInterface) {
         pluginInterface.Create<Service>();
 
         KamiCommon.Initialize(pluginInterface, "SortaBettah");

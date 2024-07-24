@@ -48,10 +48,10 @@ public class ItemTypeConfigWindow : Window {
                 if (!enabled) sortingRule.AllowedItemTypes.Remove(result.RowId);
             }
 
-            if (Service.TextureProvider.GetIcon((uint) result.Icon) is { } icon) {
+            if (Service.TextureProvider.GetFromGameIcon(new((uint) result.Icon)) is { } icon) {
                 ImGui.SameLine();
                 ImGui.SetCursorPos(ImGui.GetCursorPos() with { Y = ImGui.GetCursorPos().Y + 2.0f });
-                ImGui.Image(icon.ImGuiHandle, new Vector2(20.0f, 20.0f));
+                ImGui.Image(icon.RentAsync().Result.ImGuiHandle, new Vector2(20.0f, 20.0f));
             }
 
             ImGui.SameLine();

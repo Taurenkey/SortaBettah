@@ -31,13 +31,13 @@ public class InventorySlotView {
     private void DrawItem() {
         ImGui.SetCursorPos(drawPosition);
 
-        if (!inventorySlot.HasItem || Service.TextureProvider.GetIcon(inventorySlot.ExdItem.Icon) is not { } itemIcon) {
+        if (!inventorySlot.HasItem || Service.TextureProvider.GetFromGameIcon(new(inventorySlot.ExdItem.Icon)) is not { } itemIcon) {
             // Draw Null Image, so we have an item to hover over
             ImGui.Image(nint.Zero, ItemSize);
             return;
         }
 
-        ImGui.Image(itemIcon.ImGuiHandle, ItemSize, Vector2.Zero, Vector2.One, Vector4.One with { W = 0.50f });
+        ImGui.Image(itemIcon.RentAsync().Result.ImGuiHandle, ItemSize, Vector2.Zero, Vector2.One, Vector4.One with { W = 0.50f });
     }
 
     private void DrawFrame() {

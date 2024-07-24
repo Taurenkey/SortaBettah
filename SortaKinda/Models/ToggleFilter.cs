@@ -44,7 +44,7 @@ public class ToggleFilter {
 
     private bool ItemHasProperty(Item? item) =>  Filter switch {
         PropertyFilter.Collectable when item?.IsCollectable is true => true,
-        PropertyFilter.Dyeable when item?.IsDyeable is true => true,
+        PropertyFilter.Dyeable when item?.DyeCount > 0 => true,
         PropertyFilter.Unique when item?.IsUnique is true => true,
         PropertyFilter.Untradable when item?.IsUntradable is true => true,
         PropertyFilter.Repairable when item?.ItemRepair.Row is not 0 => true,
